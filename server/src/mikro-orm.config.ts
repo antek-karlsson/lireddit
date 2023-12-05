@@ -1,7 +1,7 @@
-import { __PROD__ } from "./constants";
-import { Post } from "./entities/Post";
-import type { MikroORM } from "@mikro-orm/postgresql";
-import path from "path";
+import { __PROD__ } from './constants';
+import { Post } from './entities/Post';
+import type { MikroORM } from '@mikro-orm/postgresql';
+import path from 'path';
 
 export default {
   migrations: {
