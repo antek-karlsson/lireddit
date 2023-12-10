@@ -1,14 +1,18 @@
-import { __PROD__ } from './constants';
-import { Post } from './entities/Post';
-import type { MikroORM } from '@mikro-orm/postgresql';
 import path from 'path';
+
+import { __PROD__ } from './constants';
+
+import { Post } from './entities/Post';
+import { User } from './entities/User';
+
+import type { MikroORM } from '@mikro-orm/postgresql';
 
 export default {
   migrations: {
     path: path.join(__dirname, './migrations'),
     glob: '!(*.d).{js,ts}',
   },
-  entities: [Post],
+  entities: [Post, User],
   dbName: 'lireddit',
   user: 'postgres',
   password: 'postgres',
