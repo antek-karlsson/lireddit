@@ -3,12 +3,14 @@
     "node": "^18.17.0 || >=20.5.0",
     "npm": ">=10.2.4"
   },
+  "type": "module",
   "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix"
+    "lint": "next lint --fix",
+    "gen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -16,6 +18,7 @@
     "@chakra-ui/theme-tools": "^2.1.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@urql/exchange-graphcache": "^7.1.1",
     "eslint-config-prettier": "^9.1.0",
     "formik": "^2.4.6",
     "framer-motion": "^10.17.9",
@@ -26,6 +29,8 @@
     "urql": "^4.1.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript-urql": "^4.0.0",
     "@types/eslint": "^8",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
@@ -44,6 +49,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.1.1",
-    "typescript": "*"
+    "typescript": "5.3.3"
   }
 }
