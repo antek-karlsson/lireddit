@@ -6,6 +6,7 @@ import { createClient } from 'redis';
 import RedisStore from 'connect-redis';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
+import cors from 'cors';
 
 import mikroConfig from './mikro-orm.config';
 import { PostResolver } from './resolvers/post';
@@ -34,6 +35,13 @@ async function main() {
     disableTouch: true,
   });
 
+  app.use(
+    cors({
+      origin: 'http://localhost:3000',
+      credentials: true,
+    }),
+  );
+
   // Initialize sesssion storage.
   app.use(
     session({
@@ -60,7 +68,7 @@ async function main() {
   });
 
   await apolloServer.start();
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({ app, cors: false });
 
   app.listen(4000, () => {
     console.log('Server started on localhost:4000');
